@@ -1,20 +1,58 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="feed-container">
-    <div class="feed-header">
-        <h1>New Year's Eve Party</h1>
-        <p>Celebrate the new year with friends and family! Enjoy live music, delicious food, and fireworks as we count down to midnight.</p>
+<div class="feed">
+    <div class="insert-post">
+        <a><img src="{{ url_for('static', filename='images/insert.svg') }}"/></a>
     </div>
-    <div class="feed-image">
-        <img src="" alt="Delicious food at New Year's Eve Party">
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-pic"></div>
+            <span class="username">@foodlover123</span>
+        </div>
+        <div class="post-content">
+            <img src="https://th.bing.com/th?id=OIP.9nl2eFOD4SKNC_FIn0bSqQHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Delicious Pizza">
+            <p class="post-text">Just tried this Margherita Pizza and it's amazing! Fresh tomatoes, mozzarella, and basil are a perfect combo. 🍕</p>
+        </div>
+        <div class="post-footer">
+            <button>Like</button>
+            <button>Comment</button>
+            <button>Share</button>
+        </div>
     </div>
-    <div class="feed-content">
-        <p><strong>Position:</strong> Event Organizer</p>
-        <p><strong>Occasion:</strong> New Year's Eve Celebration</p>
-        <p><strong>Date:</strong> December 31, 2025</p>
-        <p><strong>Rating:</strong> <span class="rating">⭐⭐⭐⭐☆</span> (4/5)</p>
+
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-pic"></div>
+            <span class="username">@dessertlover</span>
+        </div>
+        <div class="post-content">
+            <img src="https://th.bing.com/th?id=OIP.9nl2eFOD4SKNC_FIn0bSqQHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Chocolate Cake">
+            <p class="post-text">This Chocolate Lava Cake is a must-try! Rich and gooey with the perfect molten center. 🍫</p>
+        </div>
+        <div class="post-footer">
+            <button>Like</button>
+            <button>Comment</button>
+            <button>Share</button>
+        </div>
+    </div>
+
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-pic"></div>
+            <span class="username">@sushilover</span>
+        </div>
+        <div class="post-content">
+            <img src="example-food3.jpg" alt="Sushi Platter">
+            <p class="post-text">The freshest Sushi Platter I've had! Salmon, tuna, and avocado rolls. Highly recommend. 🍣</p>
+        </div>
+        <div class="post-footer">
+            <button>Like</button>
+            <button>Comment</button>
+            <button>Share</button>
+        </div>
     </div>
 </div>
+
 
 {% endblock %}

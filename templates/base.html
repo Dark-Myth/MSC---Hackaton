@@ -34,8 +34,6 @@
     <script src="{{ url_for('static', filename='scripts/carousel.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/dynamic.js') }}"></script>
 {% endif %}
-{% if request.endpoint == 'feed' %}
-    <script src="{{ url_for('static', filename='scripts/rating.js') }}"></script>
-{% endif %}
+
 </body>
 </html>
