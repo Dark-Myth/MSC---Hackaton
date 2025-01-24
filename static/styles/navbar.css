@@ -1,0 +1,50 @@
+nav {
+    background-color: #000000;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 0;  /* Add some padding to the nav */
+    
+}
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    margin: 0 10px; /* Adjust the margin as needed */
+    list-style-type: none;
+}
+
+a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+nav ul li img {
+    height: 100%;
+    max-height: 35px; /* Adjust the max-height to match the text size */
+    vertical-align: middle;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+

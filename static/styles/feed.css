@@ -1,0 +1,42 @@
+.feed-container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.feed-header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+.feed-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.feed-header p {
+    color: #555;
+    margin: 5px 0;
+}
+.feed-image {
+    text-align: center;
+    background-color: #f3f3f3;
+    padding: 10px;
+}
+.feed-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.feed-content {
+    padding: 20px;
+}
+.feed-content p {
+    margin: 10px 0;
+}
+.rating {
+    color: gold;
+    font-size: 18px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/carousel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/footer.css') }}">
+    {% if request.endpoint == 'feed' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/feed.css') }}">
+    {% endif %}
+</head>
+<body>
+    <nav  style="position: sticky; top: 0; z-index: 1000;">
+        <ul>
+            <li><a href="#"><img src="{{ url_for('static', filename='images/menu.svg') }}" alt="Menu Icon"/></a></li>
+        </ul>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('feed') }}">Feed</a></li>
+            <li><a href="{{ url_for('food') }}">Food</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <div height="50px" style="min-height: 50px;"></div>
+    <footer>
+        <p>&copy; 2023 My Flask App</p>
+    </footer>
+    {% if request.endpoint == 'home' %}
+    <script src="{{ url_for('static', filename='scripts/carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/dynamic.js') }}"></script>
+{% endif %}
+{% if request.endpoint == 'feed' %}
+    <script src="{{ url_for('static', filename='scripts/rating.js') }}"></script>
+{% endif %}
+</body>
+</html>
