@@ -1,43 +1,86 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-
-
 <div class="form-container">
-<h2>Food Review</h2>
-<form>
-    <div class="form-group">
-        <label for="name">Food Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter food name" required>
-    </div>
-    <div class="form-group">
-        <label for="restaurant">Restaurant Name</label>
-        <input type="text" id="restaurant" name="restaurant" placeholder="Enter the restaurant name" required>
-    </div>
-    <div class="form-group">
-        <label for="photo">Upload a Photo</label>
-        <input type="file" id="photo" name="photo" accept="image/*">
-    </div>
+    <h2>Food Review</h2>
+    <form id="review-form" action="{{ url_for('feed') }}" >
         <div class="form-group">
-        <label for="rating">Rating</label>
-        <div class="rating">
-            <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
-            <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
-            <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
-            <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
-            <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
+            <label for="name">Food Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter food name" required>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="thoughts">Your Thoughts</label>
-        <textarea id="thoughts" name="thoughts" placeholder="Share your thoughts about the food" required></textarea>
-    </div>
-    <div class="form-group">
-        <button type="submit">Submit Review</button>
-    </div>
-</form>
+        <div class="form-group">
+            <label for="restaurant">Restaurant Name</label>
+            <input type="text" id="restaurant" name="restaurant" placeholder="Enter the restaurant name" required>
+        </div>
+        <div class="form-group">
+            <label for="photo">Upload a Photo</label>
+            <input type="file" id="photo" name="photo" accept="image/*" >
+        </div>
+        <div class="form-group">
+            <label for="rating">Poisson Rating</label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="thoughts">Your Thoughts</label>
+            <textarea id="thoughts" name="thoughts" placeholder="Share your thoughts about the food" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit Review</button>
+        </div>
+    </form>
+</div>
+<script src="/static/scripts/feeds_storage.js"></script>
+<script src="/static/scripts/dynamic_feed.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('review-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var rating = document.querySelector('input[name="rating"]:checked').value;
+            var thoughts = document.getElementById('thoughts').value;
+            var name = document.getElementById('name').value;
+            var restaurant = document.getElementById('restaurant').value;
+            var photo = document.getElementById('photo').files[0];
+            var reader = new FileReader();
 
+            reader.onloadend = function() {
+                var newFeed = {
+                    username: "@newuser",
+                    profilePic: "",
+                    imageUrl: reader.result,
+                    text: thoughts,
+                    poisson_ratio: rating + "/5",
+                    food_name: name,
+                    restaurant_name: restaurant
+                };
 
+                document.dispatchEvent(new CustomEvent('newFeed', { detail: newFeed }));
+                window.location.href = "{{ url_for('feed') }}"; // Redirect to feed page
+            };
+
+            if (photo) {
+                reader.readAsDataURL(photo);
+            } else {
+                var newFeed = {
+                    username: "@newuser",
+                    profilePic: "",
+                    imageUrl: "",
+                    text: thoughts,
+                    poisson_ratio: rating + "/5",
+                    food_name: name,
+                    restaurant_name: restaurant
+                };
+
+                document.dispatchEvent(new CustomEvent('newFeed', { detail: newFeed }));
+                window.location.href = "{{ url_for('feed') }}"; // Redirect to feed page
+            }
+        });
+    });
+</script>
 {% endblock %}

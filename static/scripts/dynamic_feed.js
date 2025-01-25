@@ -3,8 +3,10 @@ function renderFeeds() {
     const insertPost = document.querySelector('.insert-post');
     
     // Clear existing content except for the insert-post element
-    feedContainer.innerHTML = '';
-    feedContainer.appendChild(insertPost);
+    feedContainer.innerHTML = ' ';
+    if (insertPost) {
+        feedContainer.appendChild(insertPost);
+    }
 
     feeds.forEach(feed => {
         const post = document.createElement('div');
@@ -13,6 +15,8 @@ function renderFeeds() {
         const profilePic = feed.profilePic ? `<div class="profile-pic" style="background-image: url('${feed.profilePic}');"></div>` : '';
         const imageUrl = feed.imageUrl ? `<img src="${feed.imageUrl}" alt="Food Image">` : '';
         const text = feed.text ? `<p class="post-text">${feed.text}</p>` : '';
+        const foodName = feed.food_name ? `<span class="food-name">Food: ${feed.food_name}</span>` : '';
+        const restaurantName = feed.restaurant_name ? `<span class="restaurant-name">Restaurant: ${feed.restaurant_name}</span>` : '';
 
         post.innerHTML = `
             <div class="post-header">
@@ -22,11 +26,11 @@ function renderFeeds() {
             <div class="post-content">
                 ${imageUrl}
                 ${text}
+                ${foodName}
+                ${restaurantName}
             </div>
             <div class="post-footer">
-                <button>Like</button>
-                <button>Comment</button>
-                <button>Share</button>
+                Poisson ratio: ${feed.poisson_ratio}
             </div>
         `;
 

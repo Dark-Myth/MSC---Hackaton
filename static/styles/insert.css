@@ -65,6 +65,7 @@
     justify-content: space-between;
     max-width: 200px;
     margin: 0 auto;
+    direction: rtl;
 }
 
 .rating input[type="radio"] {
@@ -78,12 +79,12 @@
 }
 
 .rating input[type="radio"]:checked ~ label {
-    color: #f5b301;
+    color: #f53e01;
 }
 
 .rating label:hover,
 .rating label:hover ~ label {
-    color: #f5b301;
+    color: #f53e01;
 }
 
 .form-group button {
