@@ -10,6 +10,12 @@
     {% if request.endpoint == 'feed' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/feed.css') }}">
     {% endif %}
+    {% if request.endpoint == 'insert' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/insert.css') }}">
+    {% endif %}
+    {% if request.endpoint == 'food' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/food.css') }}">
+    {% endif %}
 </head>
 <body>
     <nav  style="position: sticky; top: 0; z-index: 1000;">
@@ -34,6 +40,10 @@
     <script src="{{ url_for('static', filename='scripts/carousel.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/dynamic.js') }}"></script>
 {% endif %}
+{% if request.endpoint == 'food' %}
+    <script src="{{ url_for('static', filename='scripts/food_search.js') }}"></script>
+{% endif %}
+
 
 </body>
 </html>

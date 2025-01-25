@@ -1,5 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to Food Page! {% endblock %}</h1>
+     <!-- Search Box -->
+     <div class="search-box">
+        <input type="text" id="search" placeholder="Search for food..." onkeyup="searchFood()">
+    </div>
+
+    <!-- Food Categories Section -->
+    <div class="food-list" id="food-list">
+        <!-- Vada Pav -->
+        <div class="food-card" onclick="location.href='item.html?food=vada-pav';" data-food="Vada Pav">
+            <img src="https://assets.onecompiler.app/4372822x6/4372kr4gp/v1.jpeg" alt="Vada Pav">
+            <h2>Vada Pav</h2>
+            <p>Fried to perfection, with a spicy kick!</p>
+        </div>
+
+        <!-- Biryani -->
+        <div class="food-card" onclick="location.href='item.html?food=biryani';" data-food="Kerala Biryani">
+            <img src="https://assets.onecompiler.app/4372822x6/437282fme/chicken-biriyani-kerala-pin-683x1024.png" alt="Kerala Biryani">
+            <h2>Kerala Biryani</h2>
+            <p>A fragrant, flavorful delight from the South!</p>
+        </div>
+
+        <!-- Parotta -->
+        <div class="food-card" onclick="location.href='item.html?food=parotta';" data-food="Parotta">
+            <img src="https://assets.onecompiler.app/4372822x6/4372kr4gp/p1.jpg" alt="Parotta">
+            <h2>Parotta</h2>
+            <p>Flaky, buttery layers that melt in your mouth.</p>
+        </div>
+
+        <!-- Dosa -->
+        <div class="food-card" onclick="location.href='item.html?food=dosa';" data-food="Dosa">
+            <img src="https://assets.onecompiler.app/4372822x6/4372kr4gp/dosa.jpg" alt="Dosa">
+            <h2>Dosa</h2>
+            <p>Crispy, thin, and served with chutneys and sambar!</p>
+        </div>
+
+        <!-- Andhra Meals -->
+        <div class="food-card" onclick="location.href='item.html?food=andhra-meals';" data-food="Andhra Meals">
+            <img src="https://assets.onecompiler.app/4372822x6/4372kr4gp/Andhra%20Meals.jpg" alt="Andhra Meals">
+            <h2>Andhra Meals</h2>
+            <p>Spicy, bold, and full of flavors!</p>
+        </div>
+
+        <!-- Pongal -->
+        <div class="food-card" onclick="location.href='item.html?food=pongal';" data-food="pongal">
+            <img src="https://assets.onecompiler.app/4372822x6/437282fme/pongal.jpeg" alt="Pongal">
+            <h2>Pongal</h2>
+            <p>A comforting, warm dish that brings a taste of tradition!</p>
+        </div>
+    </div>
+
+    <!-- Restaurant List Section -->
+    <div class="restaurant-list" id="restaurant-list"></div>
+
 {% endblock %}

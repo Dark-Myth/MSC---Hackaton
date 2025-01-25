@@ -3,56 +3,10 @@
 {% block content %}
 <div class="feed">
     <div class="insert-post">
-        <a><img src="{{ url_for('static', filename='images/insert.svg') }}"/></a>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <div class="profile-pic"></div>
-            <span class="username">@foodlover123</span>
-        </div>
-        <div class="post-content">
-            <img src="https://th.bing.com/th?id=OIP.9nl2eFOD4SKNC_FIn0bSqQHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Delicious Pizza">
-            <p class="post-text">Just tried this Margherita Pizza and it's amazing! Fresh tomatoes, mozzarella, and basil are a perfect combo. 🍕</p>
-        </div>
-        <div class="post-footer">
-            <button>Like</button>
-            <button>Comment</button>
-            <button>Share</button>
-        </div>
-    </div>
-
-    <div class="post">
-        <div class="post-header">
-            <div class="profile-pic"></div>
-            <span class="username">@dessertlover</span>
-        </div>
-        <div class="post-content">
-            <img src="https://th.bing.com/th?id=OIP.9nl2eFOD4SKNC_FIn0bSqQHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Chocolate Cake">
-            <p class="post-text">This Chocolate Lava Cake is a must-try! Rich and gooey with the perfect molten center. 🍫</p>
-        </div>
-        <div class="post-footer">
-            <button>Like</button>
-            <button>Comment</button>
-            <button>Share</button>
-        </div>
-    </div>
-
-    <div class="post">
-        <div class="post-header">
-            <div class="profile-pic"></div>
-            <span class="username">@sushilover</span>
-        </div>
-        <div class="post-content">
-            <img src="example-food3.jpg" alt="Sushi Platter">
-            <p class="post-text">The freshest Sushi Platter I've had! Salmon, tuna, and avocado rolls. Highly recommend. 🍣</p>
-        </div>
-        <div class="post-footer">
-            <button>Like</button>
-            <button>Comment</button>
-            <button>Share</button>
-        </div>
+        <a href="{{ url_for('insert') }}"><img src="{{ url_for('static', filename='images/insert.svg') }}"/></a>
     </div>
 </div>
 
-
+<script src="{{ url_for('static', filename='scripts/feeds_storage.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/dynamic_feed.js') }}"></script>
 {% endblock %}

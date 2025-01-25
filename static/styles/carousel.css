@@ -44,7 +44,7 @@ img {
     animation-duration: 1.5s;
 }
 .below-carousel {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 @keyframes fade {
     from {opacity: .4}
@@ -64,7 +64,7 @@ img {
         max-width: 100%;
     }
     .dots-container{
-        top: 30%;
+        top: 29%;
     }
 }
 
